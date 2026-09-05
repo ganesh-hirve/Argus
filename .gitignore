@@ -1,0 +1,16 @@
+# Java / Maven
+target/
+bin/
+*.class
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Environment
+.env
+
+# Frontend
+argus-frontend/node_modules/
+argus-frontend/dist/
