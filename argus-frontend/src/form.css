@@ -1,0 +1,3 @@
+input::placeholder { color: #56616d; }
+input:disabled { color: #59636e; background: #0b0d10; cursor: not-allowed; }
+.form-error { margin-top: 8px; border: 1px solid #7e3034; background: rgba(239, 68, 68, .06); color: #ff7777; padding: 6px 7px; font: 8px 'JetBrains Mono', monospace; }
