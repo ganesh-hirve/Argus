@@ -9,16 +9,23 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/argus")
+@CrossOrigin(origins = "*")
 public class EnforcementController {
 
     private final EnforcementService enforcementService;
 
-    public EnforcementController(EnforcementService enforcementService) {
+    public EnforcementController(
+            EnforcementService enforcementService
+    ) {
         this.enforcementService = enforcementService;
     }
 
 
-    // Phase 1: Check whether execution is authorized
+    // =========================================================
+    // DRY RUN
+    // Evaluates request without modifying database state
+    // =========================================================
+
     @PostMapping("/evaluate")
     public ResponseEntity<ExecutionResponse> evaluate(
             @RequestBody ExecutionRequest request
@@ -31,7 +38,11 @@ public class EnforcementController {
     }
 
 
-    // Phase 2: Actually execute and change system state
+    // =========================================================
+    // ACTUAL EXECUTION
+    // Evaluates + enforces + modifies system state
+    // =========================================================
+
     @PostMapping("/execute")
     public ResponseEntity<ExecutionResponse> execute(
             @RequestBody ExecutionRequest request
